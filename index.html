@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Menü</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px 10px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .menu-section {
+        margin: 30px 0;
+        padding: 0 20px;
+      }
+
+      .category-header {
+        background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+      }
+
+      .category-header h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .menu-item {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #4ecdc4;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .item-name {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .size-option {
+        background: linear-gradient(45deg, #ff9a9e, #fecfef);
+        color: #2c3e50;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        box-shadow: 0 3px 10px rgba(255, 154, 158, 0.3);
+        transition: all 0.2s ease;
+      }
+
+      .size-option:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 154, 158, 0.5);
+      }
+
+      .price {
+        color: #e74c3c;
+        font-weight: bold;
+        margin-left: 8px;
+      }
+
+      .menu-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 30px;
+        background: #2c3e50;
+        color: white;
+        margin-top: 40px;
+      }
+
+      .footer p {
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 15px 8px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .menu-section {
+          padding: 0 15px;
+        }
+
+        .menu-item {
+          padding: 15px;
+        }
+
+        .item-name {
+          font-size: 1.2rem;
+        }
+
+        .sizes {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .size-option {
+          text-align: center;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px 5px;
+        }
+
+        .header {
+          padding: 20px 15px;
+        }
+
+        .header h1 {
+          font-size: 1.8rem;
+        }
+
+        .category-header h2 {
+          font-size: 1.5rem;
+        }
+
+        .menu-section {
+          margin: 20px 0;
+          padding: 0 10px;
+        }
+
+        .menu-item {
+          padding: 12px;
+        }
+
+        .item-name {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>YEDOY Restaurant</h1>
+        <h2>🍴 Menü</h2>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🥖 Pideler</h2>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1732774483944_500x375.webp"
+            alt="Kıymalı Pide Menü"
+            class="menu-img"
+          />
+          <div class="item-name">Kıymalı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">200₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">300₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1733813956609_500x375.webp"
+            alt="Kuşbaşılı Pide &amp; İçecek Menü"
+            class="menu-img"
+          />
+          <div class="item-name">Kuşbaşılı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">250₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">375₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/kusbasi_kasar.png"
+            alt="Kuşbaşılı Kaşarlı Mantarlı Pide Menü"
+            class="menu-img"
+          />
+          <div class="item-name">Kuşbaşılı Kaşarlı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">280₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">420₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/karisik.jpeg" alt="" class="menu-img" />
+          <div class="item-name">Karışık</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">250₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">375₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/pide_yumurta.jpeg"
+            alt="Kıymalı Yumurtalı"
+            class="menu-img"
+          />
+          <div class="item-name">Kıymalı Yumurtalı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">210₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">315₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/kiyma_kasar.jpeg"
+            alt="Kıyma Kaşar"
+            class="menu-img"
+          />
+          <div class="item-name">Kıyma Kaşar</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">230₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">345₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/karisik.jpeg"
+            alt="Kıyma Kaşar Yumurta"
+            class="menu-img"
+          />
+          <div class="item-name">Kıyma Kaşar Yumurta</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">240₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">360₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/kusbasi_yumurta.jpg"
+            alt="Kuşbaşılı Yumurtalı"
+            class="menu-img"
+          />
+          <div class="item-name">Kuşbaşılı Yumurtalı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">260₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">390₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/kusbasi_kasar_yumurta.jpeg"
+            alt="Kuşbaşı Kaşar Yumurta"
+            class="menu-img"
+          />
+          <div class="item-name">Kuşbaşı Kaşar Yumurta</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">290₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">435₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/pide_kasar_sebze.jpg"
+            alt="Kaşarlı Sebzeli"
+            class="menu-img"
+          />
+          <div class="item-name">Kaşarlı Sebzeli</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">220₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">330₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1746704448694_original.webp"
+            alt="Kaşarlı"
+            class="menu-img"
+          />
+          <div class="item-name">Kaşarlı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">270₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">405₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1732612805719_500x375.webp"
+            alt="Kiremitte Kuşbaşı"
+            class="menu-img"
+          />
+          <div class="item-name">Kiremitte Kuşbaşı</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 porsiyon <span class="price">300₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">450₺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🥩 Kebaplar</h2>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/adana.jpeg" alt="Adana Dürüm" class="menu-img" />
+          <div class="item-name">Adana</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">125₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">250₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">375₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1733813888696_500x375.webp"
+            alt="Beyti Kebap &amp; İçecek Menü"
+            class="menu-img"
+          />
+          <div class="item-name">Beyti</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">140₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">280₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">420₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1629202599946_500x375.jpeg"
+            alt="Servis Tavuk Şiş &amp; İçecek Menü"
+            class="menu-img"
+          />
+          <div class="item-name">Tavuk Şiş</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">100₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">200₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">300₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1747051138045_original.webp"
+            alt="Kanat"
+            class="menu-img"
+          />
+          <div class="item-name">Kanat</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">110₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">220₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">330₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1747051531966_original.webp"
+            alt="Sac Kavurma"
+            class="menu-img"
+          />
+          <div class="item-name">Sac Kavurma</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">175₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">350₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">525₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/Kiremitte-Tavuk.jpg"
+            alt="Kiremitte Tavuk"
+            class="menu-img"
+          />
+          <div class="item-name">Kiremitte Tavuk</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">125₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">250₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">375₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1747051107028_original.webp"
+            alt="Etşiş"
+            class="menu-img"
+          />
+          <div class="item-name">Etşiş</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">175₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">350₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">525₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/beyti-yemekcom.jpg"
+            alt="Yedoy Special"
+            class="menu-img"
+          />
+          <div class="item-name">Yedoy Special</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">150₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">300₺</span>
+            </div>
+            <div class="size-option">
+              1.5 porsiyon <span class="price">450₺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🍲 Çorbalar</h2>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1629202502192_500x375.jpeg"
+            alt="Mercimek Çorbası"
+            class="menu-img"
+          />
+          <div class="item-name">Mercimek</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">50₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">80₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1746754914579_original.webp"
+            alt="Ezogelin"
+            class="menu-img"
+          />
+          <div class="item-name">Ezogelin</div>
+          <div class="sizes">
+            <div class="size-option">
+              0.5 porsiyon <span class="price">50₺</span>
+            </div>
+            <div class="size-option">
+              1 porsiyon <span class="price">80₺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🥤 İçecekler</h2>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5054542.jpg" alt="Ayran Küçük" class="menu-img" />
+          <div class="item-name">Ayran Küçük</div>
+          <div class="sizes">
+            <div class="size-option">
+              Küçük Boy <span class="price">15₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5054541.jpg" alt="Ayran Büyük" class="menu-img" />
+          <div class="item-name">Ayran Büyük</div>
+          <div class="sizes">
+            <div class="size-option">
+              Büyük Boy <span class="price">20₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698925694254_500x375.jpeg"
+            alt="Ayran 1lt"
+            class="menu-img"
+          />
+          <div class="item-name">Ayran 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618877.jpg" alt="Su 0.5lt" class="menu-img" />
+          <div class="item-name">Su 0.5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">10₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618877.jpg" alt="Su 1.5lt" class="menu-img" />
+          <div class="item-name">Su 1.5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">20₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618877.jpg" alt="Soda" class="menu-img" />
+          <div class="item-name">Su 5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">30₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1721994452160_500x375.jpeg"
+            alt="Soda"
+            class="menu-img"
+          />
+          <div class="item-name">Soda</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">20₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698938413228_500x375.webp"
+            alt="Şalgam Suyu (330 ml)"
+            class="menu-img"
+          />
+          <div class="item-name">Şalgam</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698409557896_500x375.webp"
+            alt="Kutu Kola"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Kola</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698655497424_500x375.webp"
+            alt="Kutu Kola Zero"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Kola Zero</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1706705187618_500x375.webp"
+            alt="Kutu Pepsi"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Pepsi</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1706705308620_500x375.webp"
+            alt="Kutu Pepsi"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Pepsi Max</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/27334795.jpg"
+            style="object-fit: contain"
+            height="500px"
+            alt="Kutu Sprite"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Sprite</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1721994231935_500x375.jpeg"
+            alt="Kutu Fanta"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Fanta</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            style="object-fit: contain"
+            src="images/8050818-5d0c63-1650x1650.jpg"
+            height="500px"
+            alt="Kutu Didi"
+            class="menu-img"
+          />
+          <div class="item-name">Kutu Didi</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">50₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698409807106_500x375.webp"
+            alt="Şişe Kola"
+            class="menu-img"
+          />
+          <div class="item-name">Şişe Kola</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">40₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/08022865-e1f7df.jpg"
+            alt="Şişe Gazoz"
+            height="500px"
+            style="object-fit: contain"
+            class="menu-img"
+          />
+          <div class="item-name">Şişe Gazoz</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">40₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698410137127_500x375.webp"
+            alt="Mercimek Çorbası"
+            class="menu-img"
+          />
+          <div class="item-name">Kola 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698410137127_500x375.webp"
+            alt="Kola 1.5lt"
+            class="menu-img"
+          />
+          <div class="item-name">Kola 1.5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">90₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698410137127_500x375.webp"
+            alt="Kola 2.5lt"
+            class="menu-img"
+          />
+          <div class="item-name">Kola 2.5lt</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618882.jpg" alt="Fanta 1lt" class="menu-img" />
+          <div class="item-name">Fanta 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618882.jpg" alt="Fanta 1.5lt" class="menu-img" />
+          <div class="item-name">Fanta 1.5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">90₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/5618882.jpg" alt="Fanta 2.5lt" class="menu-img" />
+          <div class="item-name">Fanta 2.5lt</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="images/1706705249321_500x375.jpeg" class="menu-img" />
+          <div class="item-name">Pepsi 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1706705249321_500x375.jpeg"
+            alt="Pepsi 1.5lt"
+            class="menu-img"
+          />
+          <div class="item-name">Pepsi 1.5lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">90₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1706705249321_500x375.jpeg"
+            alt="Pepsi 2.5lt"
+            class="menu-img"
+          />
+          <div class="item-name">Pepsi 2.5lt</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/8022560_1-4951c1.jpg"
+            height="500px"
+            style="object-fit: contain"
+            alt="Uludağ Gazoz 1lt"
+            class="menu-img"
+          />
+          <div class="item-name">Uludağ Gazoz 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/8022560_1-4951c1.jpg"
+            height="500px"
+            style="object-fit: contain"
+            alt="Uludağ Gazoz 2.5lt"
+            class="menu-img"
+          />
+          <div class="item-name">Uludağ Gazoz 2.5lt</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1698938413228_500x375.jpeg"
+            alt="Şalgam 1lt"
+            class="menu-img"
+          />
+          <div class="item-name">Şalgam 1lt</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">80₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/08038955-76afa1-1650x1650.jpg"
+            alt="Şişe Çamlıca Gazoz Portakal"
+            height="500px"
+            style="object-fit: contain"
+            class="menu-img"
+          />
+          <div class="item-name">Şişe Çamlıca Gazoz Portakal</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">40₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/0003858_uludag-gazoz-200-ml-sise.jpg"
+            alt="Şişe Uludağ Sade Gazoz"
+            height="500px"
+            style="object-fit: contain"
+            class="menu-img"
+          />
+          <div class="item-name">Şişe Uludağ Sade Gazoz</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">40₺</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🍰 Tatlılar</h2>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/fistikli-tel-kadayif-e-9f83.jpg"
+            alt="Kadayıf"
+            class="menu-img"
+          />
+          <div class="item-name">Kadayıf</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1626445104279_500x375.jpeg"
+            alt="Künefe"
+            class="menu-img"
+          />
+          <div class="item-name">Künefe</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">90₺</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1629382212004_500x375.jpeg"
+            alt="Baklava"
+            class="menu-img"
+          />
+          <div class="item-name">Baklava</div>
+          <div class="sizes">
+            <div class="size-option">
+              1 adet <span class="price">100₺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="category-header">
+          <h2>🫓 Lavaş</h2>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="images/1627125065093_500x375.jpeg"
+            alt="Boş Lavaş"
+            class="menu-img"
+          />
+          <div class="item-name">Boş Lavaş</div>
+          <div class="sizes">
+            <div class="size-option">1 adet <span class="price">25₺</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Afiyet olsun! 🍽️</p>
+      </div>
+    </div>
+  </body>
+</html>
